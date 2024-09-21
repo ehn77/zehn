@@ -13,6 +13,8 @@
   display: flex; 
   justify-content: center;
   align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Overlay fades in/out over 1 second */
 }
 
 #overlay img {
@@ -22,4 +24,16 @@
   max-width: 90%;
   max-height: 90%;
   filter: invert(100%);
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Image fades in/out over 0.5 seconds */
+}
+
+#overlay.show {
+  opacity: 1;
+  display: flex;
+}
+
+/* Image fade-in class */
+#overlay img.visible {
+  opacity: 1; /* Image becomes visible */
 }
