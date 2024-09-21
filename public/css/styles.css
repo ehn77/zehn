@@ -9,12 +9,11 @@
   bottom: 0;
   background-color: rgba(0,0,0,0.90);
   z-index: 2;
-  cursor: pointer;
   display: flex; 
   justify-content: center;
   align-items: center;
   opacity: 0;
-  transition: opacity 0.5s ease; /* Overlay fades in/out over 1 second */
+  transition: opacity 0.5s ease;
 }
 
 #overlay img {
@@ -25,7 +24,9 @@
   max-height: 90%;
   filter: invert(100%);
   opacity: 0;
-  transition: opacity 0.5s ease; /* Image fades in/out over 0.5 seconds */
+  transition: opacity 0.5s ease;
+  position: relative;
+  cursor: pointer;
 }
 
 #overlay.show {
@@ -33,7 +34,20 @@
   display: flex;
 }
 
-/* Image fade-in class */
+#overlay.rotate {
+  animation: rotate 2s linear infinite;
+}
+
 #overlay img.visible {
-  opacity: 1; /* Image becomes visible */
+  opacity: 1;
+}
+
+#overlay img.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  0% { top: 0px; }
+  50% { top: 100px; }
+  100% { top: 200px; }
 }
