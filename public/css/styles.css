@@ -5,8 +5,6 @@
   height: 100%;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   background-color: rgba(0,0,0,0.90);
   z-index: 2;
   display: flex; 
@@ -14,6 +12,66 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+
+#sidebar-init img {
+  filter: invert(100%);
+  transition: filter 0.25s ease, opacity 0.5s ease;
+  width: 40px; 
+  height: 40px; 
+  opacity: 1;
+  top: 0;
+}
+
+#sidebar-init img:hover {
+  filter: invert(50%);
+  opacity: 1; 
+}
+
+#sidebar-init img.disappear {
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+}
+
+#sidebar {
+  position: fixed;
+  width: 55px;
+  height: 100%;
+  top: -10%; 
+  left: 0;
+  background-color: rgba(0,0,0,0.75);
+  z-index: 2;
+  display: none; 
+  justify-content: left;
+  align-items: flex-start;
+  transition: top 0.5s ease, opacity 0.5s ease; 
+  flex-direction: column;
+  opacity: 0; 
+}
+
+#sidebar.show {
+  opacity: 1;
+  top: 0; 
+  display: flex;
+}
+
+#sidebar img {
+  width: 35px;
+  height: 35px; 
+  filter: invert(100%);
+  opacity: 1;
+  transition: filter 0.25s ease, opacity 0.5s ease;
+  margin: 10px;
+}
+
+#sidebar img:hover {
+  filter: invert(50%);
+  opacity: 1;
+}
+
+#sidebar img.show {
+  opacity: 1;
 }
 
 #overlay img {
@@ -32,10 +90,6 @@
 #overlay.show {
   opacity: 1;
   display: flex;
-}
-
-#overlay.rotate {
-  animation: rotate 2s linear infinite;
 }
 
 #overlay img.visible {

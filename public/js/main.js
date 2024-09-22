@@ -1,5 +1,9 @@
 const overlay = document.getElementById('overlay');
 const image = document.getElementById('power');
+const sidebar = document.getElementById('sidebar');
+const xImg = document.getElementById('x');
+const sidebar_init = document.getElementById("sidebar-init");
+const circleImg = sidebar_init.querySelector('img');
 
 image.onload = function() {
     overlay.style.display = 'flex';
@@ -30,3 +34,22 @@ image.onclick = function() {
         }, 500);
     }, 500);
 };
+
+circleImg.onclick = function() {
+    circleImg.classList.add('disappear');
+    sidebar.style.display = 'flex'; 
+    setTimeout(() => {
+        sidebar.classList.add('show'); 
+    }, 0);
+};
+
+
+xImg.onclick = function() {
+    sidebar.classList.remove('show');
+    setTimeout(() => {
+        circleImg.classList.remove('disappear');
+        sidebar.style.display = 'none'; 
+    }, 250); 
+};
+
+
