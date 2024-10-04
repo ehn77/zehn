@@ -1,3 +1,50 @@
+/* Font Face Declaration */
+@font-face {
+  font-family: 'Nimbus Sans Bold';
+  src: url('fonts/Nimbus-Sans-Font/NimbusSanL-Bol.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Global styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nimbus Sans Bold', sans-serif;
+  font-weight: bold;
+  background: linear-gradient(
+    to bottom,
+    #151314 0%,
+    #151314 30%,
+    #1A1A1A 40%,
+    #202020 50%,
+    #2A2A2A 60%,
+    #353535 70%,
+    #454545 75%,
+    #5A5A5A 80%,
+    #757575 85%,
+    #9A9A9A 90%,
+    #CDCDCD 95%,
+    #FDFFFC 100%
+  );
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+
+/* Uniform font styling for text elements */
+h1, h2, h3, p, a, button, footer {
+  font-family: 'Nimbus Sans Bold', sans-serif;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+/* Overlay styles */
 #overlay {
   position: fixed;
   display: none; 
@@ -5,7 +52,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.90);
+  background-color: rgba(0, 0, 0, 0.975);
   z-index: 2;
   display: flex; 
   justify-content: center;
@@ -14,6 +61,33 @@
   transition: opacity 0.5s ease;
 }
 
+#overlay.show {
+  opacity: 1;
+  display: flex;
+}
+
+#overlay img {
+  display: block;
+  width: 7.5%; 
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  filter: invert(100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+#overlay img.visible {
+  opacity: 1;
+}
+
+#overlay img.rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* Sidebar initialization styles */
 #sidebar-init img {
   filter: invert(100%);
   transition: filter 0.25s ease, opacity 0.5s ease;
@@ -34,6 +108,7 @@
   top: 0;
 }
 
+/* Sidebar styles */
 #sidebar {
   position: fixed;
   width: 55px;
@@ -74,32 +149,7 @@
   opacity: 1;
 }
 
-#overlay img {
-  display: block;
-  width: 7.5%; 
-  height: auto;
-  max-width: 90%;
-  max-height: 90%;
-  filter: invert(100%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  position: relative;
-  cursor: pointer;
-}
-
-#overlay.show {
-  opacity: 1;
-  display: flex;
-}
-
-#overlay img.visible {
-  opacity: 1;
-}
-
-#overlay img.rotate {
-  animation: rotate 2s linear infinite;
-}
-
+/* Animation */
 @keyframes rotate {
   0% { top: 0px; }
   50% { top: 100px; }
